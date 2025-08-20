@@ -9,7 +9,10 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Finance Tracker - Personal Finance Management",
   description: "Track your expenses and budgets with Firebase integration. A professional personal finance tracker.",
-    generator: 'nana'
+  generator: "philip",
+  icons: {
+    icon: "/icons8-star-40.png", // favicon path (public folder is root)
+  },
 }
 
 export default function RootLayout({
@@ -19,6 +22,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/icons8-star-40.png" type="image/png" sizes="40x40" />
+      </head>
       <body className={`${inter.className} min-h-screen bg-gray-50`}>
         <AuthProvider>{children}</AuthProvider>
       </body>
