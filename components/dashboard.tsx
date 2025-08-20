@@ -41,7 +41,7 @@ export function Dashboard({ onNavigate }: DashboardProps) {
       // Load summary data
       const summaryResponse = await apiClient.getSummary(user.uid, selectedMonth)
       if (summaryResponse.success) {
-        setSummaryData(summaryResponse.data)
+        setSummaryData(summaryResponse.data ?? null)
       } else {
         throw new Error(summaryResponse.error || "Failed to load summary")
       }
@@ -49,7 +49,7 @@ export function Dashboard({ onNavigate }: DashboardProps) {
       // Load report data for category breakdown
       const reportResponse = await apiClient.getReport(user.uid, selectedMonth)
       if (reportResponse.success) {
-        setReportData(reportResponse.data)
+        setReportData(reportResponse.data ?? null)
       } else {
         console.warn("Failed to load report data:", reportResponse.error)
         setReportData(null)
