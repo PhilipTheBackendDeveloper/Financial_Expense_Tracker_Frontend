@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: "Track your expenses and budgets with Firebase integration. A professional personal finance tracker.",
   generator: "philip",
   icons: {
-    icon: "/icons8-star-40.png", // favicon path (public folder is root)
+    icon: "/icons8-star-40.png",
   },
 }
 
