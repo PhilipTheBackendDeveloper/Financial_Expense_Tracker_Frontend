@@ -10,6 +10,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { useAuth } from "@/hooks/use-auth"
 import { DollarSign, Mail, Lock, User } from "lucide-react"
+import { getAuthErrorMessage } from "@/lib/auth-errors"
 
 export function SignInUp() {
   const [isSignUp, setIsSignUp] = useState(false)
@@ -32,7 +33,7 @@ export function SignInUp() {
         await signIn(email, password)
       }
     } catch (error: any) {
-      setError(error.message || "Authentication failed")
+      setError(getAuthErrorMessage(error))
     } finally {
       setLoading(false)
     }
@@ -45,7 +46,7 @@ export function SignInUp() {
     try {
       await signInAnonymous()
     } catch (error: any) {
-      setError(error.message || "Anonymous sign-in failed")
+      setError(getAuthErrorMessage(error))
     } finally {
       setLoading(false)
     }
